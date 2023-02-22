@@ -1,0 +1,120 @@
+﻿@model IEnumerable<User.Models.UserDetails>
+
+@{
+    ViewBag.Title = "ListUser";
+}
+
+<h2>ListUser</h2>
+
+@if (TempData["msg2"] != null)
+{
+
+
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Danger!! </strong>@TempData["msg2"]
+    </div>
+
+
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th hidden>
+            @Html.DisplayNameFor(model => model.UserDetailsId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.MobileNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.DOB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.CityId)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.CityName)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.CountryId)
+            </th>*@
+        @*<th>
+                @Html.DisplayNameFor(model => model.CountryName)
+            </th>*@
+        @*<th>
+                @Html.DisplayNameFor(model => model.StateId)
+            </th>*@
+        @*<th>
+                @Html.DisplayNameFor(model => model.StateName)
+            </th>*@
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td hidden>
+                @Html.DisplayFor(modelItem => item.UserDetailsId)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.MobileNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+
+            <td>
+                @*@Html.DisplayFor(modelItem => item.DOB)*@
+                @item.DOB.ToString("dd/MM/yyyy")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.CityId)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.CityName)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.CountryId)
+                </td>*@
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.CountryName)
+                </td>*@
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.StateId)
+                </td>*@
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.StateName)
+                </td>*@
+            <td>
+                @Html.ActionLink("Edit", "EditUserDetails", new { id = item.UserDetailsId }) |
+                @Html.ActionLink("Details", "UserDetails", new { id = item.UserDetailsId }) |
+                @Html.ActionLink("Delete", "DeleteUserDetails", new { id = item.UserDetailsId })
+            </td>
+        </tr>
+    }
+
+</table>

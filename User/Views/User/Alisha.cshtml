@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Alisha";
+}
+
+@Html.Raw(TempData["MessageForLogin"])
+
+
+@if (Request.IsAuthenticated@*&& Session["UserName"] != null*@)
+{
+<div>
+    <span>
+        @Session["UserName"]
+    </span>
+</div>
+    <h2>Welcome....@ViewBag.Name</h2>
+
+<a href='@Url.Action("LogOut", "User")' onclick='navigate(this.href);'>
+    <input style="float: right;" type="button" value='Logout' />
+</a>
+}

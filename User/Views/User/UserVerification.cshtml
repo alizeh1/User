@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>UserVerification</title>
+</head>
+<body>
+    <h2>User Verification Process</h2>
+
+    <div class="danger alert-danger">
+        <strong>Message..!!</strong>  @ViewBag.Message,  please click here to Login @Html.ActionLink("SignIn", "Index", "User")
+    </div>
+</body>
+</html>
